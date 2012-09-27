@@ -83,10 +83,11 @@ module NestedForm
     end
 
     def fields_for_nested_model(name, object, options, block)
+      raise options.inspect
       classes = 'fields'
       classes << ' marked_for_destruction' if object.respond_to?(:marked_for_destruction?) && object.marked_for_destruction?
 
-      if options.fetch(:wrapper, true)
+      if options.fetch(:div_wrapper, true)
         @template.content_tag(:div, super, :class => classes)
       else
         super
