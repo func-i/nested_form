@@ -107,7 +107,7 @@ require "spec_helper"
 
       it "doesn't render wrapper div" do
         task = project.tasks.build
-        fields = subject.fields_for(:tasks, :wrapper => false) { 'Task' }
+        fields = subject.fields_for(:tasks, :div_wrapper => false) { 'Task' }
 
         fields.should eq('Task')
 
